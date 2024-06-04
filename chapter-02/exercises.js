@@ -26,9 +26,18 @@ LOGS =>
 
 */
 
-function triangles() {
-  
+function triangles(number) {
+  //declare and initialize level variable
+  let level = '#';
+  //while loop to iterate and increment level
+  while (level.length <= number){
+    console.log(level);
+    level += '#';
+  }
+
+
 }
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -48,7 +57,25 @@ on the number:
 */
 
 function fizzBuzz(start, end) {
-  
+  // YOUR CODE GOES BELOW HERE //
+  //for loop to iterate thru 1-100 and print
+  for (let i = start; i <= end; i++) {
+      //if statement if divisable by 3 & 5 prints fizzbuzz
+      if (i % 5 === 0 && i % 3 === 0){
+          console.log('fizzbuzz');
+          //else if statement that prints fizz if number is divisable by 3 only
+      } else if (i % 3 === 0){
+          console.log('fizz');
+          //else if statement that prints buzz if number is divisable by 5 only
+      }   else if ( i % 5 === 0){
+              console.log('buzz');
+              //default prints number if previous checks pass thru
+      }   else {
+              //if not divisable by 3 or 5, logs number
+              console.log(i);
+      }
+  }
+           
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -82,7 +109,27 @@ LOGS =>
 */
 
 function drawChessboard(x) {
+  //variable to hold string
+  let chessBoard = '';
+  //create row loop to increment starting at 0
+  for(let j = 0; j < x; j++){
+    //create column loop to iterate thru row starting from 0
+    for(let i = 0; i < x; i++){
+      //if conditon to combine both row and column into integer
+      //and test if even
+      if((i + j) % 2 === 0){
+        //if row + column is even increment string with space (white tile)
+        chessBoard += ' ';
+      } else {
+        //if odd increment string with # (black tile)
+        chessBoard += '#';
+      }
+    }
+    //after etnire row loop finishes, add a new line
+    chessBoard += '\n';
+  }
 
+  console.log(chessBoard);
 
 }
 
