@@ -32,16 +32,40 @@ function isEven(num) {
 // countChars //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countChars() {
+function countChars(string, char) {
+  //set bCount to 0
+  let charCount = 0;
+  //loop to iterate through string
+  for(let i = 0; i < string.length; i++){
+    //if string at index i is roughly equal to char
+    if(string[i] == char){
+      //icremenet charCount by 1 if true
+      charCount++;
+    }
 
+  }
+  //return bCount
+  return charCount;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // countBs /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countBs() {
-
+function countBs(str) {
+   //set bCount to 0
+   let bCount = 0;
+   //loop to iterate through string
+   for(let i = 0; i < str.length; i++){
+    //if index of i in string is equal to char 'B'
+     if(str[i] == 'B'){
+      //increment bCount by 1
+       bCount++;
+     }
+ 
+   }
+   //return bCount
+   return bCount;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
