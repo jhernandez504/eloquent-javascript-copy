@@ -2,8 +2,22 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
+function range(start, end, step = 1) {
+  if (step === 0) {
+     return [];
+  } else if(start === end){
+    return [];
+  }
+  else if ((step > 0 && end <= start) || (step < 0 && start <= end)) {
+     return [];
+  }
 
+  const rangeArray = [];
+  for (let i = start; step > 0 ? i <= end : end <= i; i += step) {
+     rangeArray.push(i);
+  }
+
+  return rangeArray;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
