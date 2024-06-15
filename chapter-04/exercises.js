@@ -42,7 +42,12 @@ function sum(array, step=1) {
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
+function reverseArray(array) {
+  let reversedArray = [];
+  for(let i = 0; i < array.length; i++){
+    reversedArray.unshift(array[i]);
+  }
+  return reversedArray;
 
 }
 
@@ -50,8 +55,23 @@ function reverseArray() {
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
-
+function reverseArrayInPlace(array) {
+  //variable set to array.length 
+  let size = array.length;
+  //create for loop to iterate thru half of array
+  //math.floor(array.length /2)
+  
+  for(let i = 0; i < Math.floor(size/2); i++){
+    console.log(i, size - 1 / 2, array[i], array[size-1-i], array);
+    //assign array at index to variable swapped
+    let swapped = array[i];
+    //reassign array at index to value of reverse position from end of array
+    array[i] = array[size-1-i];
+    //reassign position from end of array to position from front of array
+    array[size-1-i] = swapped;
+  }
+  //return modified array
+  return array;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
