@@ -131,9 +131,42 @@ function nth(list, num) {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
+function deepEqual(object1, object2) {
+  //checks if both parameters same datatype 
+  if(object1 === object2){
+   return true; 
+  }
+  //if object is null or not an object they arent equal
+  if (typeof object1 !== 'object' || object1 === null ||
+      typeof object2 !== 'object' || object2 === null) {
+    return false; 
+  }
 
+  // retrieve keys of each object
+  let keys1 = Object.keys(object1);
+  let keys2 = Object.keys(object2);
+
+  // checks if # of keys is same
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  // checks if keys and value of both objects are equal
+  for (let key of keys1) {
+    if (!keys2.includes(key) || !deepEqual(object1[key], object2[key])) {
+      return false;
+    }
+  }
+  //returns true if keys of both objects are deeply equal
+  return true; 
 }
+
+
+
+
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
