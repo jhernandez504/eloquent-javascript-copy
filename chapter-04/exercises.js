@@ -78,8 +78,15 @@ function reverseArrayInPlace(array) {
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
-
+function arrayToList(array) {
+  //set list to null
+  var list = null;
+  //loop thru array from back to front
+  for (var i = array.length - 1; i >=0; i--){
+    //create nested objects that reference the next
+    list = { value: array[i], rest: list};
+  }
+  return list;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
