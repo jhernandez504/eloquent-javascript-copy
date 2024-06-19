@@ -24,16 +24,25 @@ function loop(start, test, update, body) {
 // every ///////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function every() {
-
+function every(array, test) {
+  //returns true if all elements passed test
+  return !array.some(element => !test(element));
 }
 
 // /////////////////////////////////////////////////////////////////////////////
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
-
+function dominantDirection(text) {
+  let counted = countBy(text, char => {
+    let script = characterScript(char.codePointAt(0));
+    return script ? script.direction : "none";
+    //filter out chars that dont have a direction
+  }).filter(({name}) => name !== "none");
+  
+  if (counted.length === 0) return "none";
+  //returns most common accumulated direction
+  return counted.reduce((a, b) => a.count > b.count ? a : b).name;
 }
 
 // /////////////////////////////////////////////////////////////////////////////
